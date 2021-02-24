@@ -16,10 +16,10 @@ class Friends extends Component {
         .then(res => {
             console.log(res.data);
             this.setState({
-                friends: [...this.state, res.data
-                .map(friend => {
+                friends: res.data
+                .forEach(friend => {
                     return friend;
-                })]
+                })
             })
         })
         .catch(err => {
@@ -30,9 +30,7 @@ class Friends extends Component {
   render() {
     return (
         <div>
-            <h3>{this.state.friends.name}</h3>
-            {/* <p>{this.friend.age}</p> */}
-            {/* <p>{this.friend.email}</p> */}
+            <h3>{this.state.friends}</h3>
         </div>
     );
   }
